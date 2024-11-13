@@ -11,7 +11,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 git branch: 'dev',
-                    credentialsId: 'shilpay25',
+                    credentialsId: 'shilpa25',
                     url: 'https://github.com/shilpay25/mern-admin.git'
             }
         }
