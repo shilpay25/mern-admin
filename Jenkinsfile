@@ -15,17 +15,9 @@ pipeline {
                     url: 'https://github.com/shilpay25/mern-admin.git'
             }
         }
-
-        stage('Maven Clean Package') {
-            steps {
-                dir('frontend') {
-                    sh 'mvn clean package -DskipTests=true'
-                }
-            }
-        }
-
         stage('Docker Build Test Container') {
             steps {
+                dir('frontend')
                 script {
                     // Build Docker image for testing with the current build number as a tag
                     sh 'docker build -t shilpay25/mern-admin:${BUILD_NUMBER} frontend'
